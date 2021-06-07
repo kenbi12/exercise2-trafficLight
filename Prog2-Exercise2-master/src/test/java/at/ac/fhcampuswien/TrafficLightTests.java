@@ -12,6 +12,8 @@ import static org.junit.jupiter.api.Assertions.*;
 public class TrafficLightTests {
 
 
+
+
     @Test
     @DisplayName("Check green")
     public void checkGreen() {
@@ -62,7 +64,12 @@ public class TrafficLightTests {
         trafficLight.setStates(trafficLight.getYellowState(),trafficLight.getRedState());
         assertNotEquals(trafficLight.getCurrentState().getNextState(),trafficLight.getYellowState());
     }
-
+    @Test
+    @DisplayName("test Singleton")
+    public void checkSingleton() {
+        TrafficLightCtrl trafficLight = TrafficLightCtrl.getController();
+        assertEquals(trafficLight,TrafficLightCtrl.getController());
+    }
 
 
 
